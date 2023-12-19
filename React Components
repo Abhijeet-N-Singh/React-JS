@@ -1,0 +1,128 @@
+React Components:
+
+the developers used to write more than thousand of lines of code to develop a single-page application.
+
+these applications follow the structure of traditional DOM, and it was very challenging to make any change with them.
+
+And if any mistake found, it requires being search manually in the entire application and update accordingly.
+
+The component-based appraoch is introduced to resolve this issue.
+
+According to this approach, the complete application is divided into a small group of code, which is known as components.
+
+a component is considered as the core building block of a React application.
+
+IT makes the  task of building User Interface's Convenient.
+
+Every compoenet resides in the same space, but works independently from one another and merges all them in a parent component, which will be the final User Interface of the application.
+
+Every React component has its structure , methods as well as APIs.
+they can be reused as per the requirements.
+there are two types of components in ReactJS that are as follows:
+
+--> Functional Components (Stateless Components). only include render method, dont have their own state.
+--> Class Components (Stateful component). they can hold local state , but morre complex.
+###########################################################
+
+import React, { Component } from 'react';
+class App extends Component {
+  render() {
+    return(
+      <div>
+      <First/>
+      <Second/>
+      </div>
+    );
+  }
+}
+
+class First extends React.Component {
+  render() {
+    return (
+      <div>
+      <h1>Hello Students!!!</h1>
+      </div>
+    );
+  }
+}
+
+class Second extends React.component {
+  render() {
+    return (
+       <div>
+       <h1>We are learning React.js Module</h1>
+       <p>Use the link www.jetking.co/learn to access our MBD Course.</p>
+       </div>
+    );
+  }
+}
+export default App;
+
+##############################################################
+
+#it requires you to extend from React .
+#the class can be created by defining a class that extends the component and has a render function. you can pass data from one class to another class component. 
+-------------
+class MyComponent extend React.Component {
+  render() {
+    return (
+      <div>This is main component.</div>
+    );
+  }
+}
+
+
+------------------------ECMAScript6-------------------------------
+
+import React from 'react';
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      data:
+      [
+        {
+          "name":"Abhijeet Singh Thakur"
+        },
+        {
+          "name":"Pushpa"
+        },
+        {
+          "name":"Deepu Ruhi"
+        },
+        {
+          "name":"Bheemeswara"
+        }
+      ]
+   }
+}
+render() {
+  return (
+    <div>
+    <StudentNames/>
+    <ul>
+    {this.state.data.map((item) => <List data = {item}/>)}
+    </ul>
+    </div>
+  );
+ }
+}
+class StudentNames extends React.Component {
+  render () {
+    return (
+      <div>
+      <h1>List of MBD Students</h1>
+      </div>
+    );
+  }
+}
+class List extends React.Component {
+  render () {
+    return (
+      <ul>
+      <li>{this.props.data.name}</li>
+      </ul>
+    );
+  }
+}
+export default App;
